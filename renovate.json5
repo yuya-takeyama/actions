@@ -17,6 +17,7 @@
     {
       additionalBranchPrefix: '{{packageFileDir}}-',
       commitMessageSuffix: '({{packageFileDir}})',
+      matchPackagePatterns: ['.*'],
     },
     {
       matchUpdateTypes: ['minor', 'patch', 'pin'],
