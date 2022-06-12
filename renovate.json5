@@ -19,9 +19,11 @@
       commitMessageSuffix: '({{packageFileDir}})',
       matchPackagePatterns: ['.*'],
     },
+    /*
     {
       matchUpdateTypes: ['minor', 'patch', 'pin'],
       automerge: true,
     },
+    */
   ],
 }
