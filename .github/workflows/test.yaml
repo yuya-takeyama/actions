@@ -25,5 +25,7 @@ jobs:
           node-version: ${{ steps.node-version.outputs.version }}
           cache: yarn
       - run: yarn
+      - run: yarn build
+      - run: yarn package
       - run: yarn lint
       - run: yarn test
