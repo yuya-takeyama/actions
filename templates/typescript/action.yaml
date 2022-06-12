@@ -1,0 +1,11 @@
+name: 'TypeScript Template'
+description: 'TypeScript template of a GitHub Action'
+author: 'Yuya Takeyama'
+inputs:
+  github-token:
+    required: true
+    description: 'GitHub API token'
+    default: ${{ github.token }}
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
