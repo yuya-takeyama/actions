@@ -7,12 +7,21 @@ on:
       - main
 
 jobs:
+  detect:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.detect.outputs.matrix }}
+    steps:
+      - id: detect
+        run: |
+          echo '::set-output name=matrix::{"action":["templates/typescript"]}'
+
   run:
     runs-on: ubuntu-latest
+    needs:
+      - detect
     strategy:
-      matrix:
-        action:
-          - templates/typescript
+      matrix: ${{ fromJSON(needs.detect.outputs.matrix) }}
     defaults:
       run:
         working-directory: ${{ matrix.action }}
