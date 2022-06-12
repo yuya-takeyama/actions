@@ -38,3 +38,12 @@ jobs:
       - run: yarn package
       - run: yarn lint
       - run: yarn test
+
+  wait-test:
+    needs:
+      - detect
+      - run
+    runs-on: ubuntu-latest
+    if: failure()
+    steps:
+      - run: exit 1
