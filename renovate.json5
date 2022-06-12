@@ -1,0 +1,26 @@
+{
+  extends: ['config:base'],
+
+  platformAutomerge: true,
+
+  prHourlyLimit: 0,
+  rebaseWhen: 'never',
+  prConcurrentLimit: 10,
+
+  labels: [
+    'renovate:{{depName}}',
+    'renovate:{{depName}}/{{newVersion}}',
+    'datasource:{{datasource}}',
+  ],
+
+  packageRules: [
+    {
+      additionalBranchPrefix: '{{packageFileDir}}-',
+      commitMessageSuffix: '({{packageFileDir}})',
+    },
+    {
+      matchUpdateTypes: ['minor', 'patch', 'pin'],
+      automerge: true,
+    },
+  ],
+}

@@ -1,0 +1,4 @@
+/templates/typescript/dist
+/templates/typescript/lib
+
+node_modules
