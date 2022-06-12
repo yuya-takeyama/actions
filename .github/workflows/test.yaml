@@ -1,0 +1,29 @@
+name: test
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  prettier:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        action:
+          - templates/typescript
+    defaults:
+      run:
+        working-directory: ${{ matrix.action }}
+    steps:
+      - uses: actions/checkout@v3
+      - id: node-version
+        run: echo "::set-output name=version::$(cat .nvmrc)"
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ steps.node-version.outputs.version }}
+          cache: yarn
+      - run: yarn
+      - run: yarn lint
+      - run: yarn test
