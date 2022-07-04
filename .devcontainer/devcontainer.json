@@ -9,7 +9,6 @@
     "node": "16"
   },
   "remoteEnv": {
-    "PATH": "/home/vscode/.local/share/aquaproj-aqua/bin:${containerEnv:PATH}",
     "SHELL": "/bin/zsh"
   },
   "settings": {
